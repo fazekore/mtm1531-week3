@@ -1,11 +1,12 @@
 <?php
 
+$errors = array();
 
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 var_dump($name);
 
 if (empty($name)) {
-	
+	$errors['name'] = true;
 }
 
 ?><!DOCTYPE HTML>
@@ -20,7 +21,7 @@ if (empty($name)) {
 
     <form method="post" action="index.php">
         <div>
-            <label for="name">Name<strong>is required</strong></label>
+            <label for="name">Name <strong>is required</strong></label>
             <input id="name" name="name">
         </div>
         <div>
