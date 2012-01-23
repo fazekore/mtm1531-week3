@@ -12,6 +12,7 @@ $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
 $message = filter_input(INPUT_POST,'message', FILTER_SANITIZE_STRING);
 $picknum = filter_input(INPUT_POST,'picknum', FILTER_SANITIZE_NUMBER_INT);
+$subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if (empty($name)) {
@@ -29,9 +30,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if ($picknum < 1 || $picknum > 10){
 		$errors['picknum'] = true;	
 	}
+	
+	if (!in_array($subject, $possible_subjects)) {
+		$error['subject'] = true;
+	}
 }
-
-
 
 ?><!DOCTYPE HTML>
 <html>
@@ -50,13 +53,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
         <div>
             <label for="email">E-mail Address<?php if (isset($errors['email'])) : ?> <strong>is required</strong><?php endif; ?></label>
-            <input type="email" id="email" name="email" value="<?php echo $email;?>">
+            <input type="email" id="email" name="email" value="<?php echo $email;?>" required>
         </div>
         <div>
-        	<label for= "subject">Subject</label>
+        	<label for= "subject">Subject<?php if (isset($errors['subject'])) : ?> <strong>is required</strong><?php endif; ?></label>
             <select id="subject"name="subject">
             <?php foreach ($possible_subjects as $current_subject) : ?>
-            	<option><?php echo $current_subject; ?></option>
+            	<option selected<?php if ($current_subject == $subject) { echo ' selected'; } ?>><?php echo $current_subject; ?></option>
             <?php endforeach; ?>
             </select>
         </div>
