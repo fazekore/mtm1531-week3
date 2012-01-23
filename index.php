@@ -25,8 +25,8 @@ if (empty($name)) {
             <input id="name" name="name">
         </div>
         <div>
-            <label for="email"> E-mail Address</label>
-            <label type="email" id="email" name="email">
+            <label for="email">E-mail Address</label>
+            <label type="email" id="email" name="email"></label>
         </div>
         <div>
             <label for="message">Message</label>
