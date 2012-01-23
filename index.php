@@ -21,7 +21,7 @@ if (empty($name)) {
 
     <form method="post" action="index.php">
         <div>
-            <label for="name">Name <strong>is required</strong></label>
+            <label for="name">Name<?php if (isset($errors['name'])) : ?> <strong>is required</strong><?php endif; ?></label>
             <input id="name" name="name">
         </div>
         <div>
