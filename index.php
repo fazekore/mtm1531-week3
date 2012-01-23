@@ -9,6 +9,8 @@ var_dump($name);
 <head>
 <meta charset="utf-8">
 <title>Untitled Document</title>
+<link href="general.css" rel="stylesheet">
+
 </head>
 <body>
 
