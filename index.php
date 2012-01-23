@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
         <div>
             <label for="message">Message<?php if (isset($errors['message'])) : ?> <strong>must be at least 25 characters</strong><?php endif; ?></label>
-            <textarea id="message" name="message" required><?php echo $message;?>"></textarea>
+            <textarea id="message" name="message" required><?php echo $message;?></textarea>
         </div>
         <div>
             <button type="submit">Send Message</button>
