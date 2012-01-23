@@ -4,19 +4,23 @@
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 var_dump($name);
 
+if (empty($name)) {
+	
+}
+
 ?><!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
-<link href="general.css" rel="stylesheet">
+<title>Contact Form</title>
+<link href="css/general.css" rel="stylesheet">
 
 </head>
 <body>
 
     <form method="post" action="index.php">
         <div>
-            <label for="name">Name</label>
+            <label for="name">Name<strong>is required</strong></label>
             <input id="name" name="name">
         </div>
         <div>
