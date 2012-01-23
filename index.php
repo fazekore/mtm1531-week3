@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         	<label for= "subject">Subject</label>
             <select id="subject"name="subject">
             <?php foreach ($possible_subjects as $current_subject) : ?>
-            	<option>Transformers</option>
+            	<option><?php echo $current_subject; ?></option>
             <?php endforeach; ?>
             </select>
         </div>
