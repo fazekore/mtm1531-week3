@@ -5,8 +5,10 @@ $errors = array();
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 var_dump($name);
 
-if (empty($name)) {
-	$errors['name'] = true;
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+	if (empty($name)) {
+		$errors['name'] = true;
+	}
 }
 
 ?><!DOCTYPE HTML>
