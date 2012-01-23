@@ -22,11 +22,11 @@ if (empty($name)) {
     <form method="post" action="index.php">
         <div>
             <label for="name">Name<?php if (isset($errors['name'])) : ?> <strong>is required</strong><?php endif; ?></label>
-            <input id="name" name="name">
+            <input id="name" name="name" value"<?php echo $name;?>">
         </div>
         <div>
             <label for="email">E-mail Address</label>
-            <label type="email" id="email" name="email"></label>
+            <input type="email" id="email" name="email">
         </div>
         <div>
             <label for="message">Message</label>
